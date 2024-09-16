@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #linear-gradient(#3f036a, #670762b4);;
   --foreground: #171717;
 }
 
@@ -17,7 +17,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:  sans-serif;
 }
 
 @layer utilities {

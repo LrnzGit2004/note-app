@@ -2,8 +2,14 @@ import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import "./globals.css";
 import Nav from "./components/Nav";
-import { ThemeProvider } from "./components/ThemeProvider";
+import { ThemeProvider } from "./components/Theme-Provider";
+import { Inter } from "next/font/google";
 
+// If loading a variable font, you don't need to specify the font weight
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,19 +22,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <body>
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Nav/>
-            {children}
-            
-          </ThemeProvider>
-        
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Nav />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

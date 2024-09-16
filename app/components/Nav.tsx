@@ -2,6 +2,7 @@
 import Link from "next/link"
 import Logo from '@/public/Logo.png'
 import Image from "next/image"
+import { ThemeToggle } from "./ThemeToggle"
 
 import React from 'react'
 
@@ -15,7 +16,9 @@ export default function Nav() {
         </Link>
       </div>
 
-      <div className="flex items-center gap-4"></div>
+      <div className="flex items-center gap-4">
+        <ThemeToggle/>
+      </div>
     </nav>
   )
 }
