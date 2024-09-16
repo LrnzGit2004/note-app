@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "./components/Nav";
 import { ThemeProvider } from "./components/Theme-Provider";
 import { Inter } from "next/font/google";
+import SessionWrapper from "@/lib/SessionWrapper";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
@@ -24,15 +25,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Nav />
-          {children}
-        </ThemeProvider>
+        <SessionWrapper>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Nav />
+            {children}
+          </ThemeProvider>
+        </SessionWrapper>
       </body>
     </html>
   );
